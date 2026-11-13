@@ -38,7 +38,7 @@ Lane Coffee. Open until 2. Milk is 4. Second door on the left.
 
 The name, the price, the hours, and the door stay as written. If a line is wrong, say what to change. A site that is already live keeps the same link.
 
-There is no contract yet, so posting does not burn tokens.
+Publishing a new site burns 10,000 tokens. A later edit by the same wallet stays on the same link.
 
 ## Run it
 
