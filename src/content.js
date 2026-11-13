@@ -1,4 +1,4 @@
-export const TOKEN_MINT = "8DGaCzKUtwUyTTK9AqsTNVqPe5u5z8san2thRZCVpump";
+export const TOKEN_MINT = "DnUjB1dxpK9BF1LJnWf5FjyMBKzEzUwkZzn1W5ybpump";
 export const X_URL = "https://x.com/w00wapp";
 export const TELEGRAM_URL = "https://t.me/w00w_portal";
 export const GENERATE_TOKENS = 10_000;
