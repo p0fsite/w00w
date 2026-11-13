@@ -1,27 +1,44 @@
-<h1 align="center">w00w</h1>
-
 <p align="center">
-  Paste a page, or write one sentence.<br>
-  Get a site you can send.
+  <img src="public/w00w.svg" alt="w00w" width="148">
 </p>
 
-## The site
+<p align="center">
+  For anyone who wants a website and does not know how to make one.<br>
+  Paste a page you like, or write one sentence. Get a site you can send.
+</p>
 
-A sentence becomes one screen. The name, the price, the hours, and the door stay as written. Nothing else gets invented.
+<p align="center">
+  <a href="https://x.com/w00wapp">X</a>
+  ·
+  <a href="https://t.me/w00w_portal">Telegram</a>
+</p>
 
-```
+## How it works
+
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <strong>1. Say it</strong><br><br>
+      Paste any public page as the example, or write the name, the price, the hours, and the door.
+    </td>
+    <td width="33%" valign="top">
+      <strong>2. Read it</strong><br><br>
+      w00w writes one site. A pasted page comes back as a new site in that spirit, not a copy of theirs.
+    </td>
+    <td width="33%" valign="top">
+      <strong>3. Send it</strong><br><br>
+      Connect a Solana wallet and publish. The link looks like <code>/s/lane-coffee</code>.
+    </td>
+  </tr>
+</table>
+
+```text
 Lane Coffee. Open until 2. Milk is 4. Second door on the left.
 ```
 
-Paste a public link when you want that page open in the frame. Switch to writing when you want the site.
+The name, the price, the hours, and the door stay as written. If a line is wrong, say what to change. A site that is already live keeps the same link.
 
-## Three steps
-
-1. Paste a link, or write the sentence.
-2. Read the site. Change a line if it is wrong.
-3. Connect a Solana wallet and publish. The link looks like `/s/lane-coffee`.
-
-There is no contract yet, so posting does not burn tokens. A later edit stays on the same link.
+There is no contract yet, so posting does not burn tokens.
 
 ## Run it
 

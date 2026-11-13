@@ -67,8 +67,9 @@ function DotField() {
             y: iy * gap + gap / 2,
             phase: n * Math.PI * 2,
             speed: 0.0009 + hash(ix + 19, iy + 7) * 0.0016,
+            move: 0.0008 + hash(ix + 29, iy + 5) * 0.0007,
             radius: tone > 0.72 ? 2.6 : 1.7,
-            drift: 4 + tone * 7,
+            drift: 9 + tone * 8,
             red: tone > 0.84,
           });
         }
@@ -87,8 +88,8 @@ function DotField() {
         const a = tw * wave;
         const bucket = Math.min(5, (a * 6) | 0);
         groups[bucket + (d.red ? 6 : 0)].push({
-          x: d.x + Math.sin(t * 0.00022 + d.phase) * d.drift,
-          y: d.y + Math.cos(t * 0.00018 + d.phase) * d.drift * 0.65,
+          x: d.x + Math.sin(t * d.move + d.phase) * d.drift,
+          y: d.y + Math.cos(t * d.move * 0.8 + d.phase * 1.3) * d.drift * 0.75,
           r: d.radius * (0.82 + 0.28 * tw),
         });
       }

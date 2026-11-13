@@ -1,6 +1,6 @@
 export const TOKEN_MINT = "";
-export const X_URL = "";
-export const TELEGRAM_URL = "https://t.me/site0_portal";
+export const X_URL = "https://x.com/w00wapp";
+export const TELEGRAM_URL = "https://t.me/w00w_portal";
 export const GENERATE_TOKENS = 10_000;
 export const SITE_HOST = "";
 
