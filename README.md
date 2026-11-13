@@ -21,7 +21,7 @@ Paste a public link when you want that page open in the frame. Switch to writing
 2. Read the site. Change a line if it is wrong.
 3. Connect a Solana wallet and publish. The link looks like `/s/lane-coffee`.
 
-Publishing a new site burns 10,000 tokens. A later edit by the same wallet stays on the same link.
+There is no contract yet, so posting does not burn tokens. A later edit stays on the same link.
 
 ## Run it
 
@@ -36,7 +36,6 @@ Open `http://127.0.0.1:5173`.
 | Key | Where it is used |
 | --- | --- |
 | `XAI_API_KEY` | The model that writes the site. Server only. |
-| `VITE_PRIVY_APP_ID` | Wallet login. |
 | `HF_CREDENTIALS` | Optional. Server only. `key-id:key-secret` |
 
 Leave a key blank until you have it. Do not commit `.env`.

@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@higgsfield/client": "^0.2.6",
-    "@privy-io/react-auth": "^3.49.0",
     "@solana-program/memo": "^0.10.0",
     "@solana-program/system": "^0.10.0",
     "@solana-program/token": "^0.9.0",

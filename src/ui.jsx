@@ -29,8 +29,23 @@ function DotField() {
     let dots = [];
     let frame = 0;
     let running = true;
-    const gap = 16;
-    const alphas = [0.05, 0.08, 0.12, 0.16, 0.2, 0.24];
+    const gap = 22;
+    const ink = [
+      "rgba(26, 24, 20, 0.34)",
+      "rgba(26, 24, 20, 0.46)",
+      "rgba(26, 24, 20, 0.58)",
+      "rgba(26, 24, 20, 0.7)",
+      "rgba(26, 24, 20, 0.82)",
+      "rgba(26, 24, 20, 0.94)",
+    ];
+    const red = [
+      "rgba(225, 6, 0, 0.4)",
+      "rgba(225, 6, 0, 0.52)",
+      "rgba(225, 6, 0, 0.64)",
+      "rgba(225, 6, 0, 0.76)",
+      "rgba(225, 6, 0, 0.86)",
+      "rgba(225, 6, 0, 0.96)",
+    ];
 
     function layout() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -45,12 +60,16 @@ function DotField() {
       for (let iy = 0; iy < rows; iy += 1) {
         for (let ix = 0; ix < cols; ix += 1) {
           const n = hash(ix, iy);
-          if (n > 0.28) continue;
+          if (n > 0.42) continue;
+          const tone = hash(ix + 3, iy + 11);
           next.push({
             x: ix * gap + gap / 2,
             y: iy * gap + gap / 2,
             phase: n * Math.PI * 2,
-            speed: 0.0011 + hash(ix + 19, iy + 7) * 0.0018,
+            speed: 0.0009 + hash(ix + 19, iy + 7) * 0.0016,
+            radius: tone > 0.72 ? 2.6 : 1.7,
+            drift: 4 + tone * 7,
+            red: tone > 0.84,
           });
         }
       }
@@ -60,24 +79,29 @@ function DotField() {
     function draw(t) {
       if (!running) return;
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      const groups = [[], [], [], [], [], []];
+      const groups = [[], [], [], [], [], [], [], [], [], [], [], []];
       for (let i = 0; i < dots.length; i += 1) {
         const d = dots[i];
-        const tw = 0.5 + 0.5 * Math.sin(t * d.speed + d.phase);
-        const wave = 0.5 + 0.5 * Math.sin(t * 0.0004 + d.x * 0.018 + d.y * 0.014);
-        const a = tw * (0.4 + 0.6 * wave);
-        if (a < 0.14) continue;
-        groups[Math.min(5, (a * 6) | 0)].push(d);
+        const tw = 0.62 + 0.38 * Math.sin(t * d.speed + d.phase);
+        const wave = 0.7 + 0.3 * Math.sin(t * 0.00032 + d.x * 0.01 + d.y * 0.008);
+        const a = tw * wave;
+        const bucket = Math.min(5, (a * 6) | 0);
+        groups[bucket + (d.red ? 6 : 0)].push({
+          x: d.x + Math.sin(t * 0.00022 + d.phase) * d.drift,
+          y: d.y + Math.cos(t * 0.00018 + d.phase) * d.drift * 0.65,
+          r: d.radius * (0.82 + 0.28 * tw),
+        });
       }
       for (let i = 0; i < groups.length; i += 1) {
         const g = groups[i];
         if (!g.length) continue;
         ctx.beginPath();
         for (let j = 0; j < g.length; j += 1) {
-          ctx.moveTo(g[j].x + 1.5, g[j].y);
-          ctx.arc(g[j].x, g[j].y, 1.5, 0, Math.PI * 2);
+          const dot = g[j];
+          ctx.moveTo(dot.x + dot.r, dot.y);
+          ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
         }
-        ctx.fillStyle = `rgba(26, 24, 20, ${alphas[i]})`;
+        ctx.fillStyle = i < 6 ? ink[i] : red[i - 6];
         ctx.fill();
       }
       frame = requestAnimationFrame(draw);
@@ -201,7 +225,7 @@ export function Shell() {
       <DotField />
       <header className="top">
         <Link to="/" className="brand" aria-label="w00w">
-          <span className="mark">w<em>00</em>w</span>
+          <img src="/w00w.svg" alt="" />
         </Link>
         <nav className="pill">
           {links.map(([label, to]) => (

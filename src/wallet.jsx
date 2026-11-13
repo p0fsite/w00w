@@ -1,35 +1,5 @@
-import { PrivyProvider } from "@privy-io/react-auth";
-import { toSolanaWalletConnectors, useSolanaLedgerPlugin } from "@privy-io/react-auth/solana";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getWallets } from "@wallet-standard/app";
-
-const appId = import.meta.env.VITE_PRIVY_APP_ID;
-
-const solanaConnectors = toSolanaWalletConnectors({ shouldAutoConnect: false });
-
-const privyConfig = {
-  loginMethods: ["wallet"],
-  appearance: {
-    theme: "light",
-    accentColor: "#e10600",
-    showWalletLoginFirst: true,
-    walletChainType: "solana-only",
-    walletList: [
-      "phantom",
-      "solflare",
-      "backpack",
-      "detected_solana_wallets",
-      "wallet_connect_qr_solana",
-    ],
-  },
-  externalWallets: {
-    solana: { connectors: solanaConnectors },
-  },
-  embeddedWallets: {
-    ethereum: { createOnLogin: "off" },
-    solana: { createOnLogin: "off" },
-  },
-};
 
 const SOLANA = "solana:";
 
@@ -50,19 +20,8 @@ function shorten(address) {
 
 const WalletContext = createContext(null);
 
-function SolanaLogin() {
-  useSolanaLedgerPlugin();
-  return null;
-}
-
 export function WalletProvider({ children }) {
-  if (!appId) return <DirectWalletProvider>{children}</DirectWalletProvider>;
-  return (
-    <PrivyProvider appId={appId} config={privyConfig}>
-      <SolanaLogin />
-      <DirectWalletProvider>{children}</DirectWalletProvider>
-    </PrivyProvider>
-  );
+  return <DirectWalletProvider>{children}</DirectWalletProvider>;
 }
 
 function DirectWalletProvider({ children }) {
@@ -159,23 +118,7 @@ export function useWallet() {
 }
 
 export function ConnectWallet() {
-  const { address, wallets, open, setOpen, busy, note, setNote, connect, disconnect, login, ready } = useWallet();
-
-  if (login) {
-    if (address) {
-      return (
-        <button type="button" className="wallet on" title="Disconnect" onClick={disconnect}>
-          {shorten(address)}
-        </button>
-      );
-    }
-    return (
-      <button type="button" className="wallet" disabled={busy || ready === false} onClick={login}>
-        Connect wallet
-      </button>
-    );
-  }
-
+  const { address, wallets, open, setOpen, busy, note, setNote, connect, disconnect } = useWallet();
   if (address) {
     return (
       <button type="button" className="wallet on" title="Disconnect" onClick={disconnect}>

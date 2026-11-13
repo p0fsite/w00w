@@ -1,8 +1,8 @@
 :root {
   --bg: #f6f4ef;
-  --ink: #1a1814;
-  --muted: rgba(26, 24, 20, 0.64);
-  --faint: rgba(26, 24, 20, 0.42);
+  --ink: #0c0b09;
+  --muted: rgba(12, 11, 9, 0.9);
+  --faint: rgba(12, 11, 9, 0.74);
   --line: rgba(26, 24, 20, 0.1);
   --panel: #fffdf9;
   --card: #fffdf9;
@@ -17,6 +17,7 @@
   background: var(--bg);
   font-family: Geist, sans-serif;
   font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
   color-scheme: light;
 }
@@ -31,13 +32,14 @@ body {
 }
 
 button, input, textarea, select { font: inherit; color: inherit; }
+::placeholder { color: rgba(12, 11, 9, 0.72); opacity: 1; }
 button { cursor: pointer; }
 a { color: inherit; }
 p { margin: 0; }
 
 h1, .sheet-title, .live-link, .steps p, .example-row strong, .mini strong {
   font-family: Geist, sans-serif;
-  font-weight: 560;
+  font-weight: 600;
   letter-spacing: -0.035em;
 }
 
@@ -106,7 +108,7 @@ h1 {
 }
 
 .brand img {
-  height: 40px;
+  height: 22px;
   width: auto;
   object-fit: contain;
   background: transparent;
@@ -1148,6 +1150,7 @@ a.foot-link { text-decoration: none; }
     padding: 14px 16px 0;
   }
   .brand { font-size: 18px; }
+  .brand img { height: 18px; }
   .pill {
     order: 3;
     width: 100%;

@@ -1,5 +1,5 @@
-export const TOKEN_MINT = "BdeNkLAi22qUgYJDdrTg2kPBKWBmpnNEcng2vDhPpump";
-export const X_URL = "https://x.com/site0_app";
+export const TOKEN_MINT = "";
+export const X_URL = "";
 export const TELEGRAM_URL = "https://t.me/site0_portal";
 export const GENERATE_TOKENS = 10_000;
 export const SITE_HOST = "";
@@ -148,7 +148,7 @@ export const docs = [
       "Start with the name. Then the line a visitor should see: a price, the hours, a place. Write it in English.",
       "Press the arrow. w00w keeps the names, prices, and times you wrote.",
       "Under Database, write what a visitor can save, such as a name and a message. The published site stores those records and lists them.",
-      "Publishing a new site burns 10,000 tokens from the connected wallet.",
+      "Publishing does not burn tokens until a contract is set.",
     ],
     example:
       "“Lane Coffee. Open until 2. Black coffee 3, coffee with milk 4. Second door. No phone number.” The site stays in English and does not invent a phone number.",
@@ -182,13 +182,13 @@ export const docs = [
     slug: "pay",
     title: "Paying",
     paragraph:
-      "Publishing a new site burns 10,000 tokens from the connected wallet. Those tokens leave circulation.",
+      "There is no contract yet, so posting a site does not burn tokens. Connect a wallet, then publish.",
     steps: [
       "Press Connect wallet at the top right and pick the Solana wallet on this browser.",
-      "On the publish screen, approve the burn, then press Publish.",
-      "Copy the link once the site is saved. A later change by that same wallet keeps the link and does not burn again.",
+      "On the publish screen, press Publish.",
+      "Copy the link once the site is saved.",
     ],
-    example: "A site titled Lane Coffee goes live at /s/lane-coffee after the wallet burns 10,000 tokens.",
+    example: "A site titled Lane Coffee goes live at /s/lane-coffee once the wallet is connected.",
   },
   {
     slug: "links",
@@ -206,12 +206,12 @@ export const docs = [
     slug: "token",
     title: "The token",
     paragraph:
-      "Publishing a new site burns 10,000 tokens. The contract address is in the footer. Click it to copy.",
+      "The contract button is in the footer. The address is not set yet, so writing and posting a site does not burn tokens.",
     steps: [
-      "Connect a Solana wallet that holds the token.",
-      "Write the site, then publish. The wallet burns 10,000 tokens.",
-      "A later change by that wallet keeps the same link.",
+      "Connect a Solana wallet from the button at the top right.",
+      "Write the site, then publish it.",
+      "A later change to a live site keeps the link.",
     ],
-    example: "Lane Coffee is posted at /s/lane-coffee. The publish burns 10,000 tokens.",
+    example: "Lane Coffee is posted at /s/lane-coffee. No tokens leave the wallet.",
   },
 ];
